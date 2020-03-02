@@ -29,12 +29,50 @@ object SpatialQuery extends App{
     val pt_x = testPoints(0).trim().toDouble
     val pt_y = testPoints(1).trim().toDouble
 
-    if(pt_x < rec_x1 || pt_x > rec_x2){
-      return false
+    if(rec_x1 < rec_x2){
+      if(rec_y1 < rec_y2){
+        if(pt_x < rec_x1 || pt_x > rec_x2){
+          return false
+        }
+        if(pt_y < rec_y1 || pt_y > rec_y2){
+          return false
+        }
+      }
+      else{
+        if(pt_x < rec_x1 || pt_x > rec_x2){
+          return false
+        }
+        if(pt_y > rec_y1 || pt_y < rec_y2){
+          return false
+        }
+      }
     }
-    if(pt_y < rec_y1 || pt_y > rec_y2){
-      return false
+
+    else{
+      if(rec_y1 < rec_y2){
+        if(pt_x > rec_x1 || pt_x < rec_x2){
+          return false
+        }
+        if(pt_y < rec_y1 || pt_y > rec_y2){
+          return false
+        }
+      }
+      else{
+        if(pt_x > rec_x1 || pt_x < rec_x2){
+          return false
+        }
+        if(pt_y > rec_y1 || pt_y < rec_y2){
+          return false
+        }
+      }
     }
+
+    // if(pt_x < rec_x1 || pt_x > rec_x2){
+    //   return false
+    // }
+    // if(pt_y < rec_y1 || pt_y > rec_y2){
+    //   return false
+    // }
 
     return true
   }
