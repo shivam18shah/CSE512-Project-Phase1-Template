@@ -3,7 +3,7 @@ import sbt.Keys.{libraryDependencies, scalaVersion, version}
 
 lazy val root = (project in file(".")).
   settings(
-    name := "CSE512-Project-Phase1-Template",
+    name := "CSE512-Project-Phase1",
 
     version := "0.1.0",
 
